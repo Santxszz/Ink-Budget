@@ -75,7 +75,7 @@ exports.MailBudgetService = async id => {
 
           <h4> Valores e Quantidades </h4>
           <h5> Qtd: ${qtdProducts}x </h5>
-          <h5> Valor: R$${totalValue} </h5>
+          <h5> Valor: R$${totalValue.toFixed(2)} </h5>
 
           <footer>
               <p> Atenciosamente,<br>Central de Orçamentos </p>
