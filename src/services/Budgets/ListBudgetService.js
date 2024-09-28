@@ -36,7 +36,7 @@ exports.ListBudgetService = async () => {
             Name: productNames,
           },
           Qtd_Products: productNames.length,
-          Total_Value: totalValue,
+          Total_Value: totalValue.toFixed(2),
         },
       },
     }
