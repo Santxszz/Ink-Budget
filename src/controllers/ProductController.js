@@ -3,8 +3,12 @@ const Product = require('../database/models/Product')
 const CreateProductService = require('../services/Products/CreateProductService')
 const DeleteProductService = require('../services/Products/DeleteProductService')
 const ListProductService = require('../services/Products/ListProductService')
-const ShowProductService = require('../services/Products/ShowProductService')
-const UpdateProductService = require('../services/Products/UpdateProductService')
+const {
+  ShowProductService,
+} = require('../services/Products/ShowProductService')
+const {
+  UpdateProductService,
+} = require('../services/Products/UpdateProductService')
 
 // List Products
 module.exports.listProduct = async (req, res, next) => {
