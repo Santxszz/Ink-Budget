@@ -1,6 +1,8 @@
 const Budget = require('../database/models/Budget')
 const Product = require('../database/models/Product')
-const CreateBudgetService = require('../services/Budgets/CreateBudgetService')
+const {
+  CreateBudgetService,
+} = require('../services/Budgets/CreateBudgetService')
 const {
   DeleteBudgetService,
 } = require('../services/Budgets/DeleteBudgetService')
@@ -16,13 +18,8 @@ const {
 
 // Create a Budget
 module.exports.createBudget = async (req, res, next) => {
-  const {
-    client_name,
-    client_contact_phone,
-    client_email,
-    products_budget,
-    total_value,
-  } = req.body
+  const { client_name, client_contact_phone, client_email, products_budget } =
+    req.body
 
   const productIds = products_budget
     .split(',')
@@ -40,7 +37,7 @@ module.exports.createBudget = async (req, res, next) => {
     productsName.push(products.product_name)
   }
 
-  const createBudget = await CreateBudgetService.CreateBudgetService({
+  const createBudget = await CreateBudgetService({
     client_name,
     client_contact_phone,
     client_email,
@@ -59,7 +56,7 @@ module.exports.createBudget = async (req, res, next) => {
         phone: client_contact_phone,
       },
       products: { productsName },
-      'Total Budget': totalPrice,
+      'Total Budget': totalPrice.toFixed(2),
     },
   })
 }
